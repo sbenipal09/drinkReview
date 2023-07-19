@@ -16,7 +16,7 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Use Thymeleaf loop to iterate over the drinks and display them in the table -->
+
     <tr th:each="drink : ${myDrinks}">
         <td th:text="${drink.id}"></td>
         <td th:text="${drink.name}"></td>

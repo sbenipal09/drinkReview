@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Adding Drink</h1>
-<form th:action="@{/add}"  th:object="${drink}" method="post">
+<form th:action="@{/AddDrink}"  th:object="${drink}" method="post">
     <input type="hidden" name="id" th:value="${drink.id}"/>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" th:value="${drink.name}" required><br>
@@ -18,7 +18,7 @@
     <input type="text" id="main2" name="main2" th:value="${drink.main2}" required><br>
     <label for="amount2">Amount 2:</label>
     <input type="text" id="amount2" name="amount2" th:value="${drink.amount2}" required><br>
-    <!-- Add other input fields for remaining properties if needed -->
+
 
     <input type="submit" value="Add Drink">
 </form>

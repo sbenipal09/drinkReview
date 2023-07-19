@@ -31,15 +31,15 @@ public class DrinkController {
 
 
 
-    @GetMapping("/add")
+    @GetMapping("/AddDrink")
     public String addDrinks(Model model){
         model.addAttribute("drink", new Drink());
         return "AddDrink";
     }
-    @PostMapping("/add")
+    @PostMapping("/AddDrink")
     public  String addingDrink(@ModelAttribute Drink drink, Model model){
         drinkRepo.addDrink(drink);
-        return "redirect:/add";
+        return "redirect:/AddDrink";
     }
 
     @GetMapping("/edit/{id}")
