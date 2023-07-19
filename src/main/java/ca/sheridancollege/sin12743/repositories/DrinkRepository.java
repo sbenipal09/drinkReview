@@ -28,12 +28,13 @@ public class DrinkRepository {
         MapSqlParameterSource parameters = new MapSqlParameterSource();
         String query = "INSERT INTO easy_drinks (name, main1, amount1, main2, amount2, directions) " +
                 "VALUES (:name, :main1, :amount1, :main2, :amount2, :directions)";
-        parameters.addValue("name", drink.getName());
-        parameters.addValue("m1", drink.getMain1());
-        parameters.addValue("a1", drink.getAmount1());
-        parameters.addValue("m2", drink.getMain2());
-        parameters.addValue("a2", drink.getAmount2());
-        parameters.addValue("dir", drink.getDirections());
+        parameters.addValue("id", drink.getId())
+                .addValue("name", drink.getName())
+                .addValue("main1", drink.getMain1())
+                .addValue("amount1", drink.getAmount1())
+                .addValue("main2", drink.getMain2())
+                .addValue("amount2", drink.getAmount2())
+                .addValue("directions", drink.getDirections());
         jdbc.update(query, parameters);
     }
     public Drink getDrinkById(int id) {
@@ -52,6 +53,7 @@ public class DrinkRepository {
         String query = "UPDATE easy_drinks SET name=:name, main1=:main1, amount1=:amount1, " +
                 "main2=:main2, amount2=:amount2, directions=:directions WHERE id=:id";
         parameters.addValue("name", drink.getName());
+        parameters.addValue("main1", drink.getMain1());
         parameters.addValue("main1", drink.getMain1());
         parameters.addValue("amount1", drink.getAmount1());
         parameters.addValue("main2", drink.getMain2());
