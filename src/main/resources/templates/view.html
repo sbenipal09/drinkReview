@@ -36,8 +36,8 @@
             <td th:text="${drink.directions}"></td>
 
             <td>
-                <a th:href="@{/editlink/{id}(id=${drink.id})}">Edit</a>
-                <a th:href="@{/deletelink/{id}(id=${drink.id})}">Delete</a>
+                <a th:href="@{/edit/{id}(id=${drink.id})}">Edit</a>
+                <a th:href="@{/delete/{id}(id=${drink.id})}">Delete</a>
             </td>
         </tr>
         </tbody>
