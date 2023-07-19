@@ -22,6 +22,13 @@ public class DrinkController {
         model.addAttribute("drinks", drinkRepo.getDrinks());
         return "home";
     }
+    @GetMapping("/view")
+    public String viewDrinks(Model model) {
+        model.addAttribute("drinks", drinkRepo.getDrinks());
+        return "view";
+    }
+
+
 
 
     @GetMapping("/add")
@@ -34,11 +41,7 @@ public class DrinkController {
         drinkRepo.addDrink(drink);
         return "redirect:/add";
     }
-    @GetMapping("/view")
-    public String viewDrinks(Model model) {
-        model.addAttribute("drinks", drinkRepo.getDrinks());
-        return "view";
-    }
+
     @GetMapping("/edit/{id}")
     public String editDrink(@PathVariable int id, Model model){
         Drink drink = drinkRepo.getDrinkById(id);
@@ -56,7 +59,7 @@ public class DrinkController {
     public String deleteDrinkConfirmation(@PathVariable int id, Model model) {
         Drink drink = drinkRepo.getDrinkById(id);
         model.addAttribute("drink", drink);
-        return "delete";
+        return "deleteDrink";
     }
 
     @PostMapping("/delete/{id}")
