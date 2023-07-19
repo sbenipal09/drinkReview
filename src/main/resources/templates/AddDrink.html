@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Modify Drink</title>
+    <title>Adding Drink</title>
 </head>
 <body>
-<h1>Modify Drink</h1>
-<form th:action="@{/add}"  th:object="${drink}" method="get">
+<h1>Adding Drink</h1>
+<form th:action="@{/add}"  th:object="${drink}" method="post">
     <input type="hidden" name="id" th:value="${drink.id}"/>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" th:value="${drink.name}" required><br>
@@ -20,7 +20,7 @@
     <input type="text" id="amount2" name="amount2" th:value="${drink.amount2}" required><br>
     <!-- Add other input fields for remaining properties if needed -->
 
-    <input type="submit" value="Modify Drink">
+    <input type="submit" value="Add Drink">
 </form>
 <div>
 
