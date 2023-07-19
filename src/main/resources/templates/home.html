@@ -1,55 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
-
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-   <link rel="stylesheet"  type="text/css" href="/style.css">
-    <title>Home Page</title>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
-<h1> Home Page</h1>
-
-<div class=" Container">
-    <table class=" Table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Main1</th>
-            <th>Amount1</th>
-            <th>Main2</th>
-            <th>Amount2</th>
-            <th>Directions</th>
-            <th>Buttons</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="drink : ${drinks}">
-            <td th:text="${drink.id}"></td>
-            <td th:text="${drink.name}"></td>
-            <td th:text="${drink.main1}"></td>
-            <td th:text="${drink.amount1}"></td>
-            <td th:text="${drink.main2}"></td>
-            <td th:text="${drink.amount2}"></td>
-            <td th:text="${drink.directions}"></td>
-
-            <td>
-                <a th:href="@{/editlink/{id}(id=${drink.id})}">Edit</a>
-                <a th:href="@{/deletelink/{id}(id=${drink.id})}">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div >
-    <a href="/add">Add Drinks</a>
-    <br>
-    <a href="/view">View Drinks</a>
 
 
-</div>
 
+<br>
+<a   href="/add">Add Drinks</a>
+<a  href="/view">View Drinks</a>
 </body>
 </html>

@@ -39,27 +39,29 @@ public class DrinkController {
         model.addAttribute("drinks", drinkRepo.getDrinks());
         return "view";
     }
-    @GetMapping("/editlink/{id}")
-    public String editLink(Model model, @PathVariable int id){
-        Drink d = drinkRepo.getDrinkById(id);
-
-        model.addAttribute("drink", d);
+    @GetMapping("/edit/{id}")
+    public String editDrink(@PathVariable int id, Model model){
+        Drink drink = drinkRepo.getDrinkById(id);
+        model.addAttribute("drink", drink);
         return "editDrinks";
     }
 
-    @GetMapping("/modify")
-    public String modifyDrink(@RequestParam int id,
-                              @RequestParam String name, Model model) {
-        Drink d = new Drink(id, name);
+    @PostMapping("/edit")
+    public String processEdit(@ModelAttribute Drink drink){
+        Drink d = drink;
         drinkRepo.updateDrink(d);
-        model.addAttribute("myDrinks", drinkRepo.getDrinks());
-        return "redirect:/viewDrinks";
+        return "redirect:/view";
     }
-    @GetMapping("/deletelink/{id}")
-    public String deletePage(@PathVariable int id, Model model) {
-        Drink da = drinkRepo.getDrinkById(id);
-        drinkRepo.deleteDrink(id);
-        model.addAttribute("myDrinks", drinkRepo.getDrinks());
-        return "viewDrinks";
+    @GetMapping("/delete/{id}")
+    public String deleteDrinkConfirmation(@PathVariable int id, Model model) {
+        Drink drink = drinkRepo.getDrinkById(id);
+        model.addAttribute("drink", drink);
+        return "delete";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteDrink(@PathVariable int id) {
+        drinkRepo.deleteDrinkById(id);
+        return "redirect:/view";
     }
 }

@@ -15,6 +15,7 @@ public class DrinkRepository {
 
     protected NamedParameterJdbcTemplate jdbc;
 
+
     public ArrayList<Drink> getDrinks() {
         MapSqlParameterSource parameters = new MapSqlParameterSource();
         String query = "SELECT * FROM easy_drinks";
@@ -25,9 +26,8 @@ public class DrinkRepository {
     }
     public void addDrink(Drink drink) {
         MapSqlParameterSource parameters = new MapSqlParameterSource();
-        String query="INSERT INTO easy_drinks (name, main1, "
-                + "amount1, main2, amount2, directions) VALUES "+
-                "(:name, :m1, :a1, :m2, :a2, :dir)";
+        String query = "INSERT INTO easy_drinks (name, main1, amount1, main2, amount2, directions) " +
+                "VALUES (:name, :main1, :amount1, :main2, :amount2, :directions)";
         parameters.addValue("name", drink.getName());
         parameters.addValue("m1", drink.getMain1());
         parameters.addValue("a1", drink.getAmount1());
@@ -61,10 +61,9 @@ public class DrinkRepository {
         jdbc.update(query, parameters);
     }
 
-    public void deleteDrink(int id) {
-        MapSqlParameterSource parameters = new MapSqlParameterSource();
-        String query = "DELETE FROM easy_drinks WHERE id=:id";
-        parameters.addValue("id", id);
+    public void deleteDrinkById(int id) {
+        String query = "DELETE FROM easy_drinks WHERE id = :id";
+        MapSqlParameterSource parameters = new MapSqlParameterSource("id", id);
         jdbc.update(query, parameters);
     }
 

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Edit Drink</title>
+    <title>Edit page</title>
+
 </head>
 <body>
-<h1>Edit Drink</h1><form action="/view" th:action="@{/modify}" th:object="${drink}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    Name: <input type="text" th:field="*{name}" /><br>
-    <!-- Add other input fields for the drink properties -->
-
-    <input type="submit" value="Modify Drink"/>
+<h1>Edit drinks </h1>
+<form th:action="@{/edit}" method="post" th:object="${drink}">
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}"> <br>
+    Main 1: <input type="text" th:field="*{main1}">
+    Amount 1: <input type="number" step="0.1" th:field="*{amount1}"> <br>
+    Main 2:<input type="text" th:field="*{main2}"> <br>
+    Amount 2:<input type = "number" step="0.1" th:field="*{amount2}"><br>
+    Directions:<input type="text" th:field="*{directions}"> <br>
+    <input type="submit" value="Add Drink"/>
 </form>
-<a href="/view">Back to View Drinks</a>
-</body>
 </body>
 </html>
