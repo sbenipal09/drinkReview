@@ -1,8 +1,8 @@
 form {
-    margin: 20px;
+    left-margin: 70px;
     padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    color: #f2f2f2;
+
 }
 
 input[type="submit"] {
@@ -26,6 +26,10 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     color: #333;
+    background-image: url('drink.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 table {
@@ -38,6 +42,7 @@ th, td {
     text-align: left;
     padding: 8px;
     border: 1px solid #ddd;
+    color: goldenrod;
 }
 
 th {
@@ -45,7 +50,10 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #C2E2F1;
+}
+#hi{
+    display: inline-block;
 }
 
 a {
@@ -56,5 +64,38 @@ a {
 a:hover {
     text-decoration: underline;
 }
+#new{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    padding: 20px;
 
 
+
+}
+.test {
+     background-color: #4CAF50;
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     margin: 4px 2px;
+     cursor: pointer;
+ }
+
+.test:hover {
+    background-color: #3e8e41;
+}
+
+
+label{width: 175px;
+display: inline-block}
+
+h1{color: #f2f2f2;
+margin-left: 50px;}

@@ -11,14 +11,19 @@
     <input type="hidden" name="id" th:value="${drink.id}"/>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" th:value="${drink.name}" required><br>
+    <br>
     <label for="main1">Main Ingredient 1:</label>
     <input type="text" id="main1" name="main1" th:value="*{main1}" required><br>
+    <br>
     <label for="amount1">Amount 1:</label>
     <input type="text" id="amount1" name="amount1" th:value="${drink.amount1}" required><br>
+    <br>
     <label for="main2">Main Ingredient 2:</label>
     <input type="text" id="main2" name="main2" th:value="${drink.main2}" required><br>
+    <br>
     <label for="amount2">Amount 2:</label>
     <input type="text" id="amount2" name="amount2" th:value="${drink.amount2}" required><br>
+    <br>
 
 
     <input type="submit" value="Add Drink"/>

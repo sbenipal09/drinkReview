@@ -9,3 +9,24 @@ INSERT INTO easy_drinks (name, main1, amount1, main2, amount2, directions)   VAL
 ('Indian Summer', 'apple juice', 2, 'hot tea', 6, 'add juice to mug and top off with hot tea'),
 ('Bull Frog', 'iced tea', 1.5, 'lemonade', 5, 'serve over ice with lime slice'),
 ('Soda and It', 'soda', 2, 'grape juice', 1, 'shake in cocktail glass, no ice');
+
+
+//ADDING BARTENDER USER
+insert into SEC_User (userName, encryptedPassword, ENABLED)
+values ('Bartender', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+
+//ADDING CUSTOMER
+insert into SEC_User (userName, encryptedPassword, ENABLED)
+values ('CUSTOMER', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+
+//ADDING ROLES TO BARTENER
+insert into user_role (userId, roleId)
+values (1, 1); -- ROLE_ADMIN
+insert into user_role (userId, roleId)
+values (1, 2); -- ROLE_USER
+
+
+//ADDING ROLES TO CUSTOMER
+insert into user_role (userId, roleId)
+values (2, 2); -- ROLE_USER

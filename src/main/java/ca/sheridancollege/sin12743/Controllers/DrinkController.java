@@ -1,12 +1,16 @@
 package ca.sheridancollege.sin12743.Controllers;
 import ca.sheridancollege.sin12743.bean.Drink;
 import ca.sheridancollege.sin12743.repositories.DrinkRepository;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.ui.Model;
 
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 //@AllArgsConstructor
@@ -67,4 +71,15 @@ public class DrinkController {
         drinkRepo.deleteDrinkById(id);
         return "redirect:/view";
     }
+
+    @GetMapping("/Multiple")
+    public String goMultiple(){
+        return "Multiple";
+    }
+    @GetMapping("/accessdenied")
+    public String accessDenied(){
+        return "accessdenied";
+    }
+
+
 }
