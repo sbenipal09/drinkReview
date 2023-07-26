@@ -1,7 +1,8 @@
 package ca.sheridancollege.sin12743.Controllers;
 import ca.sheridancollege.sin12743.bean.Drink;
 import ca.sheridancollege.sin12743.repositories.DrinkRepository;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.ui.Model;
 
 
@@ -21,10 +22,13 @@ public class DrinkController {
     public DrinkController(DrinkRepository drinkRepo) {
         this.drinkRepo = drinkRepo;
     }
-    @GetMapping("/")
-    public  String goHome(Model model){
-        model.addAttribute("drinks", drinkRepo.getDrinks());
-        return "home";
+
+
+
+    @GetMapping(value = {"/"})
+    public String goHome(){
+
+        return  "home";
     }
     @GetMapping("/view")
     public String viewDrinks(Model model) {
@@ -80,6 +84,15 @@ public class DrinkController {
     public String accessDenied(){
         return "accessdenied";
     }
-
+    @GetMapping("/user")
+    public String goUser(Authentication authentication){
+        //authentication is null if you have not yet logged in
+        String name = authentication.getName();
+        List<String> roles = new ArrayList<String>();
+        for (GrantedAuthority grant : authentication.getAuthorities()){
+            roles.add(grant.getAuthority());
+        }
+        return "user";
+    }
 
 }
